@@ -1,6 +1,12 @@
-# Voyager — 49 Years Into the Unknown
+# NASA-Voyager
+
+**Voyager — 49 Years Into the Unknown**
 
 旅行者：飞向未知的 49 年。Explore NASA/JPL trajectories for both Voyagers in a shared interactive atlas and documentary-style film.
+
+## 完整交付资料
+
+[完整清单](deliverables/README.md) · [源码备份](deliverables/01-source/voyager-explorer-source.zip) · [静态网站构建](deliverables/02-website/voyager-explorer-static.zip) · [原始轨迹数据](deliverables/03-data/voyager_horizons_data.zip) · [90 秒视频](deliverables/04-video/voyager-49-years.mp4) · [科学验证报告](docs/VALIDATION.md)
 
 ## Run
 

@@ -1,0 +1,24 @@
+
+> voyager-explorer@1.0.0 video
+> node scripts/render.mjs --width 1920 --height 1080 --fps 30 --out artifacts/voyager-49-years.mp4
+
+[swscaler @ 0x7ffb78012440] deprecated pixel format used, make sure you did set range correctly
+Rendered 150/2700 frames
+Rendered 300/2700 frames
+Rendered 450/2700 frames
+Rendered 600/2700 frames
+Rendered 750/2700 frames
+Rendered 900/2700 frames
+Rendered 1050/2700 frames
+Rendered 1200/2700 frames
+Rendered 1350/2700 frames
+Rendered 1500/2700 frames
+Rendered 1650/2700 frames
+Rendered 1800/2700 frames
+Rendered 1950/2700 frames
+Rendered 2100/2700 frames
+Rendered 2250/2700 frames
+Rendered 2400/2700 frames
+Rendered 2550/2700 frames
+Rendered 2700/2700 frames
+artifacts/voyager-49-years.mp4

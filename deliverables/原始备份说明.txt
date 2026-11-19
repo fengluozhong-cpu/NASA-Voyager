@@ -1,0 +1,11 @@
+Voyager 项目完整备份
+
+01-source  开发源码、Pages 工作流、测试、缓存与补采原始响应
+02-website 可直接发布的构建文件，解压后用静态服务器访问
+03-data    原始交付的 Horizons CSV、采集脚本与元数据
+04-video   90 秒 1080p 成片、双语 SRT 与视频验证记录
+05-verification 浏览器截图、科学验证、项目状态与素材来源
+
+Git 源码版本：2c46584d830d7fcca5cf235280663efce8d76119
+SHA256SUMS.txt 可用于核对本包内每个文件。
+GitHub Pages 在备份时尚未部署。

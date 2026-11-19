@@ -1,0 +1,50 @@
+1
+00:00:00,000 --> 00:00:12,000
+Voyager 2 launched first, followed by Voyager 1 on September 5.
+旅行者 2 号率先升空，1 号于 9 月 5 日发射。源星历从稍晚的首个可用采样点开始。
+
+2
+00:00:12,000 --> 00:00:20,000
+Voyager 1 passed Jupiter and revealed Io’s active volcanoes.
+旅行者 1 号掠过木星，观测到木卫一的活火山。
+
+3
+00:00:20,000 --> 00:00:28,000
+Saturn and Titan redirected Voyager 1 out of the plane of the planets.
+土星与泰坦飞掠改变了旅行者 1 号的方向，使它离开行星轨道面。
+
+4
+00:00:28,000 --> 00:00:35,000
+Voyager 2 used Saturn’s gravity to continue toward Uranus.
+旅行者 2 号借助土星引力飞往天王星。
+
+5
+00:00:35,000 --> 00:00:42,000
+Voyager 2 made the first spacecraft flyby of Uranus.
+旅行者 2 号首次近距离飞掠天王星。
+
+6
+00:00:42,000 --> 00:00:50,000
+The last planetary encounter sent Voyager 2 south of the ecliptic.
+最后一次行星飞掠将旅行者 2 号送往黄道面南侧。
+
+7
+00:00:50,000 --> 00:01:05,000
+Voyager 1 looked back and photographed Earth from nearly 6 billion km away.
+旅行者 1 号回望地球，在约 60 亿公里外拍下这张照片。
+
+8
+00:01:05,000 --> 00:01:12,000
+Voyager 1 crossed the heliopause into the interstellar medium.
+旅行者 1 号穿越日球层顶，进入星际介质。
+
+9
+00:01:12,000 --> 00:01:19,000
+Voyager 2 became the second spacecraft to cross the heliopause.
+旅行者 2 号成为第二艘穿越日球层顶的航天器。
+
+10
+00:01:19,000 --> 00:01:30,000
+Geometric Earth range reaches the distance light travels in 24 hours.
+由 Horizons 同历元位置计算，旅行者 1 号与地球之间的几何距离达到光传播 24 小时的距离。
+
