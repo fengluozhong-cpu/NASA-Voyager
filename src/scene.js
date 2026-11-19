@@ -229,7 +229,12 @@ export async function createScene(container,data,base,{video=false}={}){
   renderer.render(scene,camera);
   label(labels[0],sun.position,!close);
   probes.forEach(({group},i)=>label(labels[i+1],group.position,!!s[i]&&visible[i]&&(!close||i===0)));
-  planets.forEach((planet,i)=>label(labels[i+3],planet.position,planet.visible&&distance<95&&[2,4,5,6,7].includes(i)));
+  planets.forEach((planet,i)=>{
+   const anchor=close&&i===jupiterIndex
+    ? new T.Vector3().setFromMatrixColumn(camera.matrixWorld,0).multiplyScalar(planet.scale.x).add(planet.position)
+    : planet.position;
+   label(labels[i+3],anchor,planet.visible&&distance<95&&[2,4,5,6,7].includes(i));
+  });
  }
  return {frame,reset(overview){tracked=null;previous=null;desired=null;reset(overview);},
   follow,clearFollow(){tracked=null;previous=null;desired=null;},modelLoaded,canvas:renderer.domElement};

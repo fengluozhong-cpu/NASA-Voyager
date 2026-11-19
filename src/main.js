@@ -25,12 +25,14 @@ if(video){
  <main class="wrap"><div class="intro"><div class="intro-copy"><p class="eyebrow"><i></i> NASA / JPL HORIZONS <span>1977 — 2026</span></p><h1>49 Years Into <em>the Unknown</em></h1><p class="zh" lang="zh">旅行者：飞向未知的 49 年</p>
  <div class="intro-actions"><button id="start-journey" class="start-button" disabled>Start the journey</button><button id="watch-jupiter" class="flyby-button" disabled>Watch the Jupiter flyby</button></div></div>
  <aside class="light-day" aria-label="One light-day milestone"><p class="eyebrow">NOV 2026 / VOYAGER 1</p><p class="light-day-number">24 <span>hours</span></p><p>One-way radio travel time from Earth to Voyager 1.</p></aside></div>
- <div class="dashboard"><section id="atlas" class="atlas" aria-label="Orbit explorer"><div class="scene-top"><span><i></i> <b id="view-label">HELIOCENTRIC VIEW</b></span><span id="frame-label">J2000 ECLIPTIC</span><button id="scene-play" hidden>Pause journey</button></div>
+ <div class="dashboard"><div class="atlas-stack"><section id="atlas" class="atlas" aria-label="Orbit explorer"><div class="scene-top"><span><i></i> <b id="view-label">HELIOCENTRIC VIEW</b></span><span id="frame-label">J2000 ECLIPTIC</span><button id="scene-play" hidden>Pause journey</button></div>
  <div id="space"><p id="loading" role="status">Loading NASA trajectory data…</p></div>
- <div id="flyby-caption" hidden><span>VOYAGER 1 / 1979</span><strong>Jupiter flyby</strong><span id="flyby-range"></span></div>
- <div class="scene-hud"><div class="legend"><label><input id="show-v1" type="checkbox" checked><i></i> Voyager 1</label><label><input id="show-v2" type="checkbox" checked><i></i> Voyager 2</label></div><button id="reset" title="Reset camera">⟲ <span>Reset view</span></button></div>
+ <div class="scene-controls">
  <div class="scale"><label for="scale">Scale</label><select id="scale"><option value="presentation">Presentation</option><option value="scientific">Scientific</option></select><label class="boundary"><input type="checkbox" id="boundary"> Heliopause</label></div>
+ <div class="scene-hud"><div class="legend"><label><input id="show-v1" type="checkbox" checked><i></i> Voyager 1</label><label><input id="show-v2" type="checkbox" checked><i></i> Voyager 2</label></div><button id="reset" title="Reset camera">⟲ <span>Reset view</span></button></div>
+ </div>
  </section>
+ <div id="flyby-caption" hidden><strong>Jupiter flyby</strong><span id="flyby-range"></span></div></div>
  <aside class="telemetry" aria-label="Flight data"><header><span class="eyebrow"><i></i> FLIGHT DATA</span><span>UTC</span></header><div class="probe-tabs" role="group" aria-label="Select spacecraft"><button id="v1" aria-pressed="true"><i></i> Voyager 1</button><button id="v2" aria-pressed="false"><i></i> Voyager 2</button></div>
  <div id="readings" aria-live="off"><p>Waiting for ephemerides</p></div><button id="track" aria-pressed="false">◎ Track spacecraft</button></aside></div>
  <section class="timeline" aria-label="Mission timeline"><div class="time-head"><div><div class="eyebrow">MISSION TIMELINE</div><div class="date-row"><time id="current-date">—</time><span>Horizons model</span></div></div><div class="transport"><button id="play" aria-label="Play">▶︎</button><label for="speed">Rate</label><select id="speed" aria-label="Playback rate"><option value="1">1 day/s</option><option value="30">30 days/s</option><option value="180" selected>180 days/s</option><option value="730">730 days/s</option></select></div></div>
@@ -156,6 +158,7 @@ async function init(){
   }
   if(closeUp!==jupiterCloseUp){
    closeUp=jupiterCloseUp;
+   $('#atlas').classList.toggle('is-flyby',closeUp);
    $('#flyby-caption').hidden=!closeUp;
    $('#view-label').textContent=closeUp?'JUPITER-CENTERED VIEW':'HELIOCENTRIC VIEW';
    readouts();

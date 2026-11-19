@@ -24,6 +24,13 @@ try{
  assert.match(await page.locator('#current-date').innerText(),/05 MAR 1979/);
  assert.equal(await page.locator('#view-label').innerText(),'JUPITER-CENTERED VIEW');
  assert.ok(await page.locator('.object-label').filter({hasText:/^JUPITER$/}).isVisible());
+ const sceneBounds=await page.locator('#space canvas').boundingBox();
+ const topBounds=await page.locator('.scene-top').boundingBox();
+ const controlBounds=await page.locator('.scene-controls').boundingBox();
+ const captionBounds=await page.locator('#flyby-caption').boundingBox();
+ assert.ok(topBounds.y+topBounds.height<=sceneBounds.y);
+ assert.ok(controlBounds.y>=sceneBounds.y+sceneBounds.height);
+ assert.ok(captionBounds.y>=sceneBounds.y+sceneBounds.height);
  await page.locator('#atlas').scrollIntoViewIfNeeded();
  await page.screenshot({path:'artifacts/jupiter-flyby.jpg',quality:90});
  await page.getByRole('button',{name:'Uranus encounter'}).click();
@@ -66,10 +73,35 @@ try{
  await page.screenshot({path:'artifacts/mobile.jpg',quality:90,fullPage:true});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),390);
  await page.getByRole('button',{name:'Watch the Jupiter flyby'}).click();
- await page.waitForFunction(()=>document.querySelector('#flyby-range').textContent.startsWith('34'));
- await page.getByRole('button',{name:'Pause journey'}).click();
- await page.locator('#atlas').screenshot({path:'artifacts/mobile-flyby.jpg',quality:90});
- assert.ok(await page.locator('#flyby-caption').isVisible());
+ const flyby=await page.evaluate(()=>new Promise(resolve=>{
+  const caption=document.querySelector('#flyby-caption'),canvas=document.querySelector('#space canvas');
+  const range=document.querySelector('#flyby-range'),player=document.querySelector('#scene-play');
+  const header=document.querySelector('.scene-top'),controls=document.querySelector('.scene-controls');
+  const deadline=performance.now()+25000;
+  let frames=0,overlap=false,closest=Infinity,first=null,last=null;
+  function inspect(){
+   if(!caption.hidden&&range.textContent){
+    const distance=Number(range.textContent.split(' ')[0].replaceAll(',',''));
+    if(first===null)first=distance;
+    last=distance;
+    closest=Math.min(closest,distance);
+    frames++;
+    const scene=canvas.getBoundingClientRect();
+    overlap||=header.getBoundingClientRect().bottom>scene.top
+     ||controls.getBoundingClientRect().top<scene.bottom
+     ||caption.getBoundingClientRect().top<scene.bottom;
+   }
+   const complete=player.textContent==='Replay journey';
+   if(complete||performance.now()>deadline)resolve({complete,frames,overlap,first,closest,last});
+   else requestAnimationFrame(inspect);
+  }
+  inspect();
+ }));
+ assert.ok(flyby.complete&&flyby.frames>10,JSON.stringify(flyby));
+ assert.ok(flyby.closest<350000&&flyby.first>flyby.closest&&flyby.last>flyby.closest,JSON.stringify(flyby));
+ assert.equal(flyby.overlap,false);
+ await page.locator('.atlas-stack').screenshot({path:'artifacts/mobile-flyby.jpg',quality:90});
+ console.log(`PASS: mobile flyby text and controls stayed outside the canvas across ${flyby.frames} sampled frames, from approach through departure.`);
  assert.deepEqual(failures,[]);
  console.log('PASS: Visitor flow, flight data, Journey launch and Jupiter close-up, legacy controls, WebGL, mobile and HTTP/JS errors.');
 }finally{await harness.close();}
