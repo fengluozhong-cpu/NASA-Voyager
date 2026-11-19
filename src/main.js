@@ -107,7 +107,7 @@ async function init(){
  $('#show-v1').onchange=e=>{visible[0]=e.target.checked;};$('#show-v2').onchange=e=>{visible[1]=e.target.checked;};
  $('#scale').onchange=e=>{e.target.title=e.target.value==='scientific'?'Body radii at the same scale as coordinates':'Body radii exaggerated for visibility';};
  $('#time').oninput=e=>{if(journey)mode(false);playback(false);t=Number(e.target.value);readouts();};
- $('#play').onclick=()=>{if(!playing&&!journey&&t>=END-.001)t=START;if(journey&&seconds>=total)seconds=0;playback(!playing);};
+ $('#play').onclick=()=>{if(!playing&&!journey&&t>=END-.05){t=START;readouts();}if(journey&&seconds>=total)seconds=0;playback(!playing);};
  mark(active);readouts();
  window.voyager={data,scene,chapters};
  function frame(now){
@@ -120,7 +120,7 @@ async function init(){
    if(seconds>=total&&playing)playback(false);
   }else if(playing){
    t=Math.min(END,t+Number($('#speed').value)*delta);
-   if(t>=END)playback(false);
+   if(t>=END){playback(false);readouts();}
   }
   if((playing||journey)&&now-lastUI>120){readouts();lastUI=now;}
   scene.frame(t,{scientific:$('#scale').value==='scientific',visible,heliopause:$('#boundary').checked||journey&&[7,8].includes(active),shot});

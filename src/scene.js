@@ -120,7 +120,7 @@ export async function createScene(container,data,base,{video=false}={}){
   if(overview){
    const points=[0,1].map(i=>scenePoint(data.state(i,END)));
    controls.target.set(...points[0].map((value,i)=>(value+points[1][i])/3));
-   camera.position.copy(controls.target).add(new T.Vector3(43,285,286));
+   camera.position.copy(controls.target).add(new T.Vector3(303,153,-75));
   }
   else{camera.position.set(26,33,64);controls.target.set(0,0,0);}
   controls.update();
