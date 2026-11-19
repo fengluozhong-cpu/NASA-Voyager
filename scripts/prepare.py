@@ -103,6 +103,9 @@ def main():
         inner = name in ('mercury','venus','earth','mars')
         rows, info = fetch(name,command,START if inner else '1977-08-18',STOP,'1d' if inner else '5d',2)
         datasets[name]=pack(name,rows); supplemental[name]=info
+    key = 'jupiter_encounter'
+    rows, info = fetch(key,599,'1979-03-02','1979-03-08','1h',2)
+    datasets[key]=pack(key,rows); supplemental[key]=info
     rows, info = fetch('voyager2_launch',-32,'1977-08-20T16:00','1977-09-01','1h',2)
     datasets['voyager2_launch']=pack('voyager2_launch',rows)
     supplemental['voyager2_launch']=info

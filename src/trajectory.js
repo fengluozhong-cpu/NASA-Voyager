@@ -30,7 +30,7 @@ export async function loadData(base){
   const response=await fetch(base+'data/manifest.json');
   if(!response.ok)throw Error('Horizons manifest unavailable');
   const manifest=await response.json(), tables={};
-  const keys=[...new Set([...names,'earth_extension',...stateKeys(0),...stateKeys(1)])];
+  const keys=[...new Set([...names,'earth_extension','jupiter_encounter',...stateKeys(0),...stateKeys(1)])];
   await Promise.all(keys.map(async key=>{
     const spec=manifest.datasets[key];
     const r=await fetch(base+'data/'+spec.file);
@@ -47,7 +47,8 @@ export async function loadData(base){
     }
     return null;
   };
-  const planet=(name,t)=>name==='earth'?(sample(tables.earth_extension,t)||sample(tables.earth,t)):sample(tables[name],t);
+  const finerPlanetTables={earth:tables.earth_extension,jupiter:tables.jupiter_encounter};
+  const planet=(name,t)=>sample(finerPlanetTables[name],t)||sample(tables[name],t);
   const distance=(i,t)=>{
     const s=state(i,t),e=planet('earth',t);
     return s&&e?Math.hypot(s[0]-e[0],s[1]-e[1],s[2]-e[2]):null;
@@ -57,6 +58,21 @@ export async function loadData(base){
     for(let i=0;i<30;i++){const m=(a+b)/2;if(distance(0,m)>=C*86400)b=m;else a=m;}
     milestone=b;
   }
-  return {manifest,tables,state,planet,distance,milestone};
+  // Pair the geometric states before plotting in a Jupiter-centered frame.
+  // Search only the actual common hourly epochs for the camera's central moment.
+  const relativeJupiter=(t)=>{
+    const s=state(0,t),j=sample(tables.jupiter_encounter,t);
+    return s&&j?s.slice(0,3).map((value,i)=>value-j[i]):null;
+  };
+  const samples=[];
+  let closest=null;
+  for(let offset=0;offset<tables.jupiter_encounter.length;offset+=7){
+    const time=tables.jupiter_encounter[offset],relative=relativeJupiter(time);
+    if(!relative)continue;
+    const range=Math.hypot(...relative);
+    samples.push({time,relative});
+    if(!closest||range<closest.range)closest={time,range};
+  }
+  return {manifest,tables,state,planet,distance,milestone,jupiterFlyby:{samples,closest,relative:relativeJupiter}};
 }
 export const scenePoint=(s)=>[s[0]/AU,s[2]/AU,-s[1]/AU];

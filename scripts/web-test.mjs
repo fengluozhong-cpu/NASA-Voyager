@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict';
 import {mkdir} from 'node:fs/promises';
 import {browserHarness} from './browser.mjs';
-const harness=await browserHarness();
+const harness=await browserHarness(process.env.VOYAGER_TEST_URL);
 const failures=[];
 try{
- const page=await harness.browser.newPage({viewport:{width:1440,height:1080}});
+ const page=await harness.browser.newPage({viewport:{width:1440,height:1080},reducedMotion:'reduce'});
  page.on('pageerror',e=>failures.push(e.message));
  page.on('response',r=>{if(r.status()>=400&&r.url().startsWith(harness.url)&&!r.url().endsWith('favicon.ico'))failures.push(r.status()+' '+r.url());});
  await page.goto(harness.url,{waitUntil:'domcontentloaded'});
@@ -13,6 +13,19 @@ try{
  assert.match(await page.locator('#current-date').innerText(),/18 NOV 2026 UTC/);
  await mkdir('artifacts',{recursive:true});
  await page.screenshot({path:'artifacts/desktop.jpg',quality:90,fullPage:true});
+ assert.match(await page.getByLabel('One light-day milestone').innerText(),/24 hours/);
+ assert.equal(await page.getByRole('complementary',{name:'Flight data'}).count(),1);
+ await page.getByRole('button',{name:'Start the journey'}).click();
+ assert.match(await page.locator('#current-date').innerText(),/1977/);
+ assert.equal(await page.locator('#journey').getAttribute('aria-pressed'),'true');
+ await page.getByRole('button',{name:'Watch the Jupiter flyby'}).click();
+ await page.waitForFunction(()=>document.querySelector('#flyby-range').textContent.startsWith('34'));
+ await page.getByRole('button',{name:'Pause journey'}).click();
+ assert.match(await page.locator('#current-date').innerText(),/05 MAR 1979/);
+ assert.equal(await page.locator('#view-label').innerText(),'JUPITER-CENTERED VIEW');
+ assert.ok(await page.locator('.object-label').filter({hasText:/^JUPITER$/}).isVisible());
+ await page.locator('#atlas').scrollIntoViewIfNeeded();
+ await page.screenshot({path:'artifacts/jupiter-flyby.jpg',quality:90});
  await page.getByRole('button',{name:'Uranus encounter'}).click();
  assert.match(await page.locator('#current-date').innerText(),/24 JAN 1986/);
  assert.equal(await page.locator('#v2').getAttribute('aria-pressed'),'true');
@@ -26,7 +39,7 @@ try{
  await page.locator('#reset').click();
  await page.locator('#journey').click();
  assert.equal(await page.locator('#journey').getAttribute('aria-pressed'),'true');
- await page.getByRole('button',{name:'Pause'}).click();
+ await page.getByRole('button',{name:'Pause',exact:true}).click();
  await page.locator('#explore').click();
  await page.locator('#time').press('End');
  await page.locator('#reset').click();
@@ -41,7 +54,7 @@ try{
  const endDate=await page.locator('#current-date').innerText();
  await page.locator('#play').click();
  await page.waitForFunction(before=>document.querySelector('#current-date').textContent!==before,endDate);
- await page.getByRole('button',{name:'Pause'}).click();
+ await page.getByRole('button',{name:'Pause',exact:true}).click();
  await page.locator('#time').press('End');
  await page.locator('#reset').click();
  await page.locator('#scale').selectOption('presentation');
@@ -52,6 +65,11 @@ try{
  await page.setViewportSize({width:390,height:844});
  await page.screenshot({path:'artifacts/mobile.jpg',quality:90,fullPage:true});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),390);
+ await page.getByRole('button',{name:'Watch the Jupiter flyby'}).click();
+ await page.waitForFunction(()=>document.querySelector('#flyby-range').textContent.startsWith('34'));
+ await page.getByRole('button',{name:'Pause journey'}).click();
+ await page.locator('#atlas').screenshot({path:'artifacts/mobile-flyby.jpg',quality:90});
+ assert.ok(await page.locator('#flyby-caption').isVisible());
  assert.deepEqual(failures,[]);
- console.log('PASS: Chromium WebGL, official model, timeline, camera, probes, telemetry, event navigation, Journey, scales, mobile layout and HTTP/JS errors.');
+ console.log('PASS: Visitor flow, flight data, Journey launch and Jupiter close-up, legacy controls, WebGL, mobile and HTTP/JS errors.');
 }finally{await harness.close();}

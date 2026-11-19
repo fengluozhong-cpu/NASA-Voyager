@@ -1,0 +1,19 @@
+{
+  "query": {
+    "COMMAND": "'599'",
+    "CENTER": "'500@10'",
+    "EPHEM_TYPE": "'VECTORS'",
+    "REF_PLANE": "'ECLIPTIC'",
+    "REF_SYSTEM": "'ICRF'",
+    "TIME_TYPE": "'TDB'",
+    "VEC_CORR": "'NONE'",
+    "OUT_UNITS": "'KM-S'",
+    "VEC_TABLE": "'2'",
+    "CSV_FORMAT": "'YES'",
+    "OBJ_DATA": "'NO'",
+    "START_TIME": "'1979-03-02'",
+    "STOP_TIME": "'1979-03-08'",
+    "STEP_SIZE": "'1h'"
+  },
+  "fetched_at_utc": "2026-11-19T18:30:54.201434+00:00"
+}

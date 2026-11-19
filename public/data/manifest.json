@@ -208,6 +208,14 @@
       "start_jd_tdb": 2461357.5,
       "stop_jd_tdb": 2461363.5,
       "sha256": "f25963c72374bbe69202e68d17eb3414a7d87518ea7d40b458ce1c19b616b6cf"
+    },
+    "jupiter_encounter": {
+      "file": "jupiter_encounter.bin",
+      "columns": 7,
+      "rows": 145,
+      "start_jd_tdb": 2443934.5,
+      "stop_jd_tdb": 2443940.5,
+      "sha256": "434053a0e40f244174b10c796389429b5aed89440550d02eda31802a702432b8"
     }
   },
   "supplemental_queries": {
@@ -462,11 +470,32 @@
       "fetched_at_utc": "2026-11-19T04:44:56.561226+00:00",
       "raw_sha256": "dd3326b1c9891c84fb3b73522fbb48ba499cd3d272858847cd81bf3f2a20a997",
       "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:44:56 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Earth (399)                     {source: DE441}\nCenter body name: Sun (10)                        {source: DE441}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 2026-Nov-13 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 60 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "jupiter_encounter": {
+      "query": {
+        "COMMAND": "'599'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'1979-03-02'",
+        "STOP_TIME": "'1979-03-08'",
+        "STEP_SIZE": "'1h'"
+      },
+      "fetched_at_utc": "2026-11-19T18:30:54.201434+00:00",
+      "raw_sha256": "f6a49736c8a188122a26d5f213d9064109f993519ba787e197a902721a18ab87",
+      "header": "*******************************************************************************\nEphemeris / API_USER Thu Nov 19 10:30:54 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Jupiter (599)                   {source: jup365_merged}\nCenter body name: Sun (10)                        {source: jup365_merged}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 1979-Mar-02 00:00:00.0000 TDB\nStop  time      : A.D. 1979-Mar-08 00:00:00.0000 TDB\nStep-size       : 60 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
     }
   },
   "validation": {
     "archive_records": 107502,
-    "record_count": 194562,
+    "record_count": 194707,
     "max_earth_range_error_km": 4.327057927846909,
     "velocity_changes_over_2kms": {
       "voyager1_heliocentric_daily.csv": [

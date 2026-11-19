@@ -50,6 +50,13 @@ test('real Voyager data covers all shots and brackets the calculated light-day m
   assert.ok(Math.abs(data.distance(0,data.milestone)/C-86400)<.0001);
   assert.ok(data.distance(0,data.milestone-1/24)<C*86400);
   assert.ok(data.distance(0,data.milestone+1/24)>C*86400);
+  const flyby=data.jupiterFlyby;
+  assert.equal(flyby.samples.length,145);
+  assert.equal(dateUTC(flyby.closest.time).toISOString().slice(0,10),'1979-03-05');
+  assert.ok(flyby.closest.range>347000&&flyby.closest.range<350000);
+  const {time}=flyby.closest;
+  assert.ok(Math.hypot(...flyby.relative(time-.5))>flyby.closest.range*2.5);
+  assert.ok(Math.hypot(...flyby.relative(time+.5))>flyby.closest.range*2.5);
   assert.equal(shots.reduce((sum,s)=>sum+s.seconds,0),90);
   assert.deepEqual(shotAt(40.125,chapters),shotAt(40.125,chapters));
   for(let t=0;t<90;t+=.2){

@@ -8,6 +8,8 @@
 
 [完整清单](deliverables/README.md) · [源码备份](deliverables/01-source/voyager-explorer-source.zip) · [静态网站构建](deliverables/02-website/voyager-explorer-static.zip) · [原始轨迹数据](deliverables/03-data/voyager_horizons_data.zip) · [90 秒视频](deliverables/04-video/voyager-49-years.mp4) · [科学验证报告](docs/VALIDATION.md)
 
+以上归档对应首发版本。新版首屏、木星飞掠和补采星历见当前分支。[打开网站](https://fengluozhong-cpu.github.io/NASA-Voyager/)
+
 ## Run
 
 Node 22+ and npm. The checked-in vector cache, NASA GLB and archive images make a NASA API connection optional at runtime.

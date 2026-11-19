@@ -1,12 +1,32 @@
 import * as T from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {AU,scenePoint,planetNames,sample,END} from './trajectory.js';
+import {AU,scenePoint,planetNames,END} from './trajectory.js';
+import {Line2} from 'three/addons/lines/Line2.js';
+import {LineGeometry} from 'three/addons/lines/LineGeometry.js';
+import {LineMaterial} from 'three/addons/lines/LineMaterial.js';
 const palette=[0xef795b,0xeec58f,0x87bad5,0xd67952,0xd7ad86,0xe8cd9c,0x87c8cf,0x749fea];
 const radii=[2439.7,6051.8,6371,3389.5,69911,58232,25362,24622];
 const sizes=[.15,.22,.26,.2,.65,.55,.39,.37];
 export const colors=[0x7ed8ec,0xf6b978];
 const orbits=[.39,.72,1,1.52,5.2,9.58,19.2,30.05];
+const jupiterIndex=planetNames.indexOf('jupiter');
+
+function makeFlyby(scene,{samples,closest}){
+ const path=samples.filter(({time})=>Math.abs(time-closest.time)<=.75);
+ const points=path.map(({relative})=>new T.Vector3(...scenePoint(relative)));
+ const normal=points[0].clone().cross(points.at(-1)).normalize();
+ // Tilt away from the pole-on trajectory view to show Jupiter's cloud bands.
+ const nearest=new T.Vector3(...scenePoint(samples.find(({time})=>time===closest.time).relative)).normalize();
+ const side=normal.clone().cross(nearest).normalize();
+ const view=normal.addScaledVector(side,1.1).normalize();
+ const geometry=new LineGeometry().setPositions(points.flatMap(point=>point.toArray()));
+ const material=new LineMaterial({color:colors[0],linewidth:2,transparent:true,opacity:.8});
+ const line=new Line2(geometry,material);
+ line.visible=false;
+ scene.add(line);
+ return {line,view};
+}
 function makeSprite(){
  const canvas=document.createElement('canvas');canvas.width=128;canvas.height=128;
  const c=canvas.getContext('2d'),g=c.createRadialGradient(64,64,1,64,64,64);
@@ -69,6 +89,18 @@ export async function createScene(container,data,base,{video=false}={}){
   }
   return group;
  });
+ const flyby=makeFlyby(scene,data.jupiterFlyby);
+ const flybyFill=new T.DirectionalLight(0xffe2c0,1.25);
+ scene.add(flybyFill,flybyFill.target);
+ if(!video){
+  const material=planets[jupiterIndex].children[0].material;
+  new T.TextureLoader().load(base+'assets/jupiter-map.jpg',map=>{
+   map.colorSpace=T.SRGBColorSpace;
+   material.map.dispose();
+   material.map=map;
+   material.needsUpdate=true;
+  });
+ }
  const probes=[0,1].map(i=>{
   const group=new T.Group(), beacon=new T.Mesh(sphere,new T.MeshBasicMaterial({color:colors[i]}));
   scene.add(group);scene.add(beacon);
@@ -132,9 +164,29 @@ export async function createScene(container,data,base,{video=false}={}){
   const state=data.state(id,t);
   if(state){const v=new T.Vector3(...scenePoint(state));desired={target:v,position:v.clone().add(new T.Vector3(9,6,15))};}
  }
- function frame(t,{scientific=false,visible=[true,true],heliopause=false,shot=null}={}){
+ function frame(t,{scientific=false,visible=[true,true],heliopause=false,shot=null,jupiterCloseUp=false}={}){
   const s=[data.state(0,t),data.state(1,t)];
-  if(shot){
+  const relative=jupiterCloseUp&&data.jupiterFlyby.relative(t);
+  const close=Boolean(relative);
+  controls.minDistance=close ? .0001 : .015;
+  const near=close ? .0001 : .005;
+  if(camera.near!==near){camera.near=near;camera.updateProjectionMatrix();}
+  flyby.line.visible=close&&visible[0];
+  flybyFill.visible=close;
+  rings.visible=!close;
+  if(close){
+   const jupiter=new T.Vector3(...scenePoint(data.planet('jupiter',t)));
+   const offset=new T.Vector3(...scenePoint(relative));
+   const separation=offset.length();
+   const distance=Math.max(.0036,separation*Math.max(2.1,2.35/camera.aspect));
+   const up=new T.Vector3(0,1,0).addScaledVector(flyby.view,-flyby.view.y).normalize();
+   const headroom=camera.aspect<1.15 ? .15 : .065;
+   controls.target.copy(jupiter).addScaledVector(offset,.5).addScaledVector(up,-distance*headroom);
+   camera.position.copy(controls.target).addScaledVector(flyby.view,distance);
+   flyby.line.position.copy(jupiter);
+   flybyFill.position.copy(camera.position);
+   flybyFill.target.position.copy(jupiter);
+  }else if(shot){
    const position=s[shot.event.target]||data.planet('earth',t);
    const target=new T.Vector3(...scenePoint(position));
    controls.target.copy(target);camera.position.copy(target).add(new T.Vector3(...shot.offset));controls.update();
@@ -151,30 +203,32 @@ export async function createScene(container,data,base,{video=false}={}){
   controls.update();
   sun.scale.setScalar(scientific?695700/AU:Math.max(.18,distance*.008));
   glow.scale.setScalar(sun.scale.x*7);
-  boundary.visible=heliopause;
+  boundary.visible=heliopause&&!close;
   for(let i=0;i<planets.length;i++){
    const state=data.planet(planetNames[i],t),group=planets[i];
-   group.visible=!!state;
+   group.visible=!!state&&(!close||i===jupiterIndex);
    if(state)group.position.set(...scenePoint(state));
-   group.scale.setScalar(scientific?radii[i]/AU:sizes[i]*Math.max(.16,Math.min(1,distance/40)));
+   if(close&&i===jupiterIndex)group.scale.setScalar(radii[i]/AU*(scientific?1:1.55));
+   else group.scale.setScalar(scientific?radii[i]/AU:sizes[i]*Math.max(.16,Math.min(1,distance/40)));
    group.rotation.y=t*.19+i;
   }
   for(let i=0;i<2;i++){
    const {group,beacon}=probes[i],track=tracks[i];
-   group.visible=!!s[i]&&visible[i]&&!scientific;
-   beacon.visible=!!s[i]&&visible[i]&&!group.visible;
+   const shown=!!s[i]&&visible[i]&&(!close||i===0);
+   group.visible=shown&&!scientific;
+   beacon.visible=shown&&!group.visible;
    if(s[i]){group.position.set(...scenePoint(s[i]));beacon.position.copy(group.position);group.rotation.set(.22,-.64+i*1.7,.1);}
-   group.scale.setScalar(video ? distance * .13 : Math.max(.12, distance * .027));
+   group.scale.setScalar(close ? distance * .15 : video ? distance * .13 : Math.max(.12, distance * .027));
    beacon.scale.setScalar(distance*.003);
-   if(!modelLoaded){group.visible=false;beacon.visible=!!s[i]&&visible[i];}
-   track.full.visible=visible[i];track.bright.visible=visible[i];
+   if(!modelLoaded){group.visible=false;beacon.visible=shown;}
+   track.full.visible=visible[i]&&!close;track.bright.visible=visible[i]&&!close;
    let lo=0,hi=track.timeline.length;
    while(lo<hi){const m=(lo+hi)>>1;if(track.timeline[m]<=t)lo=m+1;else hi=m;}
    track.bright.geometry.setDrawRange(0,lo);
   }
   renderer.render(scene,camera);
-  label(labels[0],sun.position,true);
-  probes.forEach(({group},i)=>label(labels[i+1],group.position,!!s[i]&&visible[i]));
+  label(labels[0],sun.position,!close);
+  probes.forEach(({group},i)=>label(labels[i+1],group.position,!!s[i]&&visible[i]&&(!close||i===0)));
   planets.forEach((planet,i)=>label(labels[i+3],planet.position,planet.visible&&distance<95&&[2,4,5,6,7].includes(i)));
  }
  return {frame,reset(overview){tracked=null;previous=null;desired=null;reset(overview);},

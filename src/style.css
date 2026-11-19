@@ -12,3 +12,27 @@
 .event{flex:0 0 auto;min-width:112px;padding-right:11px}
 #film-image{position:absolute;right:5vw;top:15vh;width:19vw;max-height:37vh;object-fit:contain;object-position:right center;border:1px solid #6a7b8d75;background:#0c101a;border-radius:.3vw}
 @media(min-width:1100px){.events{display:grid;grid-template-columns:repeat(10,minmax(0,1fr))}.event{min-width:0;white-space:normal;padding:8px}}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,310px);gap:32px;align-items:end}
+.intro-copy .zh{margin:8px 0 0;color:#bab1a1}
+.intro-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.intro-actions button{font-size:14px;min-height:42px;font-weight:600}
+.intro-actions button:disabled{opacity:.55;cursor:wait}
+.start-button{background:#8edbea;color:#09202b;border-color:#8edbea}
+.start-button:not(:disabled):hover{background:#b2eff7;border-color:#b2eff7}
+.flyby-button{background:transparent;color:#e9d3b4;border-color:#514639}
+.light-day{padding:11px 0 12px 21px;border-left:1px solid #354657}
+.light-day .eyebrow{color:#a8bfcb}
+.light-day-number{font:400 clamp(48px,5.1vw,76px)/.88 "Instrument Serif",Georgia,serif;color:#e3cda8;margin:7px 0 5px;white-space:nowrap}
+.light-day-number span{font-size:.51em;font-style:italic}
+.light-day>p:last-child{margin:9px 0 0;color:#b6c3d0;font-size:14px;line-height:1.45;max-width:230px}
+.date-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.date-row>span{color:#a5b9c7;font:12px var(--mono)}
+#atlas{scroll-margin-top:12px}
+#view-label{font-weight:500}
+#flyby-caption{position:absolute;right:17px;bottom:66px;padding:11px 14px;background:#0d1522df;border:1px solid #344a58;border-radius:6px;pointer-events:none}
+#flyby-caption span{display:block;color:#add4de;font:11px/1.45 var(--mono)}
+#flyby-caption strong{display:block;font:400 27px/1.15 "Instrument Serif",Georgia,serif;color:#f1e3d1}
+#flyby-caption #flyby-range{color:#cfdae2;font-size:12px}
+@media(max-width:860px){.intro{gap:18px;grid-template-columns:minmax(0,1fr) minmax(176px,27%)}.light-day{padding-left:15px}}
+@media(max-width:650px){.intro{display:flex;flex-direction:column;align-items:stretch;gap:16px}.intro-actions{margin-top:13px}.intro-actions button{font-size:13px;padding:.55rem .7rem}.light-day{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:baseline;border-left:0;border-top:1px solid #354657;padding:12px 0 0}.light-day .eyebrow{grid-column:1/-1;font-size:10px}.light-day-number{font-size:43px;margin:4px 0}.light-day>p:last-child{margin:0;font-size:13px;max-width:none}.date-row{gap:2px 8px}.date-row>span{font-size:10px}.date-row time{white-space:nowrap}#flyby-caption{left:9px;right:auto;bottom:106px;padding:8px 10px}#flyby-caption strong{font-size:22px}#flyby-caption #flyby-range{font-size:10px}}
+#scene-play{pointer-events:auto;background:#142332e8;border:1px solid #496675;color:#e0f5f7;font:12px var(--mono);padding:7px 9px}
