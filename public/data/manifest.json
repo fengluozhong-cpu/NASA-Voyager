@@ -1,0 +1,643 @@
+{
+  "au_km": 149597870.7,
+  "datasets": {
+    "voyager1_heliocentric_daily": {
+      "file": "voyager1_heliocentric_daily.bin",
+      "columns": 7,
+      "rows": 17966,
+      "start_jd_tdb": 2443392.5,
+      "stop_jd_tdb": 2461357.5,
+      "sha256": "4a0a57a6c8c0f044e9b1b5c6786865880305154779b080088dd9f5ea8d757712"
+    },
+    "voyager1_geocentric_daily": {
+      "file": "voyager1_geocentric_daily.bin",
+      "columns": 3,
+      "rows": 17966,
+      "start_jd_tdb": 2443392.5,
+      "stop_jd_tdb": 2461357.5,
+      "sha256": "b4c5c5f071e851a9f354ec1f70bc983150975b90c7609cdcb0581aef02cf5601"
+    },
+    "voyager1_heliocentric_hourly_recent": {
+      "file": "voyager1_heliocentric_hourly_recent.bin",
+      "columns": 7,
+      "rows": 8761,
+      "start_jd_tdb": 2460992.5,
+      "stop_jd_tdb": 2461357.5,
+      "sha256": "f4ca98f024c7a0fcd0ba73a8a5ff71b0fa72a7095084a336b8c46b37f3b9c25b"
+    },
+    "voyager1_projected_to_2050": {
+      "file": "voyager1_projected_to_2050.bin",
+      "columns": 7,
+      "rows": 8450,
+      "start_jd_tdb": 2461358.5,
+      "stop_jd_tdb": 2469807.5,
+      "sha256": "2e560a0de5e691c786759e788488ec8491f0593a631b547429c1d209a2d975ff"
+    },
+    "voyager2_heliocentric_daily": {
+      "file": "voyager2_heliocentric_daily.bin",
+      "columns": 7,
+      "rows": 17971,
+      "start_jd_tdb": 2443387.5,
+      "stop_jd_tdb": 2461357.5,
+      "sha256": "aae6edc9cde1828857672479791ae889acb243338ca5bb5fae5e258a75618d07"
+    },
+    "voyager2_geocentric_daily": {
+      "file": "voyager2_geocentric_daily.bin",
+      "columns": 3,
+      "rows": 17971,
+      "start_jd_tdb": 2443387.5,
+      "stop_jd_tdb": 2461357.5,
+      "sha256": "1d8ae29124c616033d56e15f55e30804a94cd37d29c0f3576afe82f0e975c29b"
+    },
+    "voyager2_heliocentric_hourly_recent": {
+      "file": "voyager2_heliocentric_hourly_recent.bin",
+      "columns": 7,
+      "rows": 8761,
+      "start_jd_tdb": 2460992.5,
+      "stop_jd_tdb": 2461357.5,
+      "sha256": "dc9dc4ee85a46eeca549e40c503e1aab34ef2f3d2371d37103a6a70d288f7f54"
+    },
+    "voyager2_projected_to_2050": {
+      "file": "voyager2_projected_to_2050.bin",
+      "columns": 7,
+      "rows": 8450,
+      "start_jd_tdb": 2461358.5,
+      "stop_jd_tdb": 2469807.5,
+      "sha256": "584b8b8f41c1ffd9daa9137894db5b2adf2294fbf3f5e8afa7370d0a3ef5ae4e"
+    },
+    "v1_jupiter": {
+      "file": "v1_jupiter.bin",
+      "columns": 7,
+      "rows": 145,
+      "start_jd_tdb": 2443934.5,
+      "stop_jd_tdb": 2443940.5,
+      "sha256": "b205332897d499c9e68281cab085fd629816c0f529d1d08585d8ed237a88abd0"
+    },
+    "v1_saturn": {
+      "file": "v1_saturn.bin",
+      "columns": 7,
+      "rows": 145,
+      "start_jd_tdb": 2444552.5,
+      "stop_jd_tdb": 2444558.5,
+      "sha256": "8e94fba96fee5527db29a884a51716f407559a52cdad5fe7a979cfd27ab2d96e"
+    },
+    "v2_saturn": {
+      "file": "v2_saturn.bin",
+      "columns": 7,
+      "rows": 145,
+      "start_jd_tdb": 2444838.5,
+      "stop_jd_tdb": 2444844.5,
+      "sha256": "9d666fc14c1f8db2b737caff17f16116bc3139eed5aa098074d0892f7504ad83"
+    },
+    "v2_uranus": {
+      "file": "v2_uranus.bin",
+      "columns": 7,
+      "rows": 145,
+      "start_jd_tdb": 2446451.5,
+      "stop_jd_tdb": 2446457.5,
+      "sha256": "5345a3e5655a9ce831cefe70771f0128061cfb93ff178cecdfbbb71d7c72c91b"
+    },
+    "v2_neptune": {
+      "file": "v2_neptune.bin",
+      "columns": 7,
+      "rows": 145,
+      "start_jd_tdb": 2447760.5,
+      "stop_jd_tdb": 2447766.5,
+      "sha256": "309530a734e7a35e5164512f0ab2e0b79810a34fd555330c9ec58120ec64a457"
+    },
+    "v1_heliopause": {
+      "file": "v1_heliopause.bin",
+      "columns": 7,
+      "rows": 481,
+      "start_jd_tdb": 2456154.5,
+      "stop_jd_tdb": 2456174.5,
+      "sha256": "834bfc1fa5317be33b8583ccef59b6a5ebab44ecf025967be9e7fd9c1169fb6b"
+    },
+    "mercury": {
+      "file": "mercury.bin",
+      "columns": 7,
+      "rows": 17989,
+      "start_jd_tdb": 2443375.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "6e0c245b7bc4154e1778999049c644cb4e50f40e43bf152f81acc3d2cd438bc4"
+    },
+    "venus": {
+      "file": "venus.bin",
+      "columns": 7,
+      "rows": 17989,
+      "start_jd_tdb": 2443375.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "25e5120594931d9a9fcbd252ed217993ae8daf187bc5bd38cb03ce0cf934aecd"
+    },
+    "earth": {
+      "file": "earth.bin",
+      "columns": 7,
+      "rows": 17989,
+      "start_jd_tdb": 2443375.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "e4530e5df750fb00b47d2024239360389044619e516c033ec6a9831d17450405"
+    },
+    "mars": {
+      "file": "mars.bin",
+      "columns": 7,
+      "rows": 17989,
+      "start_jd_tdb": 2443375.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "991cb2c0495c5aa168dbfbd92295b7368e2966f873b398a56ee3296109f00a44"
+    },
+    "jupiter": {
+      "file": "jupiter.bin",
+      "columns": 7,
+      "rows": 3599,
+      "start_jd_tdb": 2443373.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "1ca418b12c3b40a5ce5c80333e382762c0e4a558a6b53e81de5c28161f20bdc2"
+    },
+    "saturn": {
+      "file": "saturn.bin",
+      "columns": 7,
+      "rows": 3599,
+      "start_jd_tdb": 2443373.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "4327935d258518a319159157eab647cc41edb7501e9f1d69c11f4c4f6bb429de"
+    },
+    "uranus": {
+      "file": "uranus.bin",
+      "columns": 7,
+      "rows": 3599,
+      "start_jd_tdb": 2443373.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "a5751f3819cb61a875271f761c5d5bf4f6e55bac256924d049c38226a1ae0ee9"
+    },
+    "neptune": {
+      "file": "neptune.bin",
+      "columns": 7,
+      "rows": 3599,
+      "start_jd_tdb": 2443373.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "3afdc3f07db6a1cb96e1eabba902557caaa6dc815b94dc92349168f2cb505336"
+    },
+    "voyager2_launch": {
+      "file": "voyager2_launch.bin",
+      "columns": 7,
+      "rows": 273,
+      "start_jd_tdb": 2443376.166666667,
+      "stop_jd_tdb": 2443387.5,
+      "sha256": "3534af190c6be3b46ce3be1816918ec7708cdd16a93877d201a0d814cf95d070"
+    },
+    "voyager1_extension": {
+      "file": "voyager1_extension.bin",
+      "columns": 7,
+      "rows": 145,
+      "start_jd_tdb": 2461357.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "b6dbbd01c07914fe72bd183268573b2d2883be5adccdc4be0b5e47e18986c067"
+    },
+    "voyager2_extension": {
+      "file": "voyager2_extension.bin",
+      "columns": 7,
+      "rows": 145,
+      "start_jd_tdb": 2461357.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "6dbd2cd41307427dce1e3bde20467577a36e6e64f176692f86aed7add663bebd"
+    },
+    "earth_extension": {
+      "file": "earth_extension.bin",
+      "columns": 7,
+      "rows": 145,
+      "start_jd_tdb": 2461357.5,
+      "stop_jd_tdb": 2461363.5,
+      "sha256": "f25963c72374bbe69202e68d17eb3414a7d87518ea7d40b458ce1c19b616b6cf"
+    }
+  },
+  "supplemental_queries": {
+    "mercury": {
+      "query": {
+        "COMMAND": "'199'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'1977-08-20'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'1d'"
+      },
+      "fetched_at_utc": "2026-11-19T04:39:47.103990+00:00",
+      "raw_sha256": "32622e6a1c80c60b207da0f5e9c81bef7d4b66abaab278a8d8aaa354463333ae",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:39:46 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Mercury (199)                   {source: DE441}\nCenter body name: Sun (10)                        {source: DE441}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 1977-Aug-20 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 1440 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "venus": {
+      "query": {
+        "COMMAND": "'299'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'1977-08-20'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'1d'"
+      },
+      "fetched_at_utc": "2026-11-19T04:39:48.485091+00:00",
+      "raw_sha256": "bfa2f6db7a417f3304658c04d2bbcf6f8841e60a9c99d23ef6e12acfccd86d44",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:39:48 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Venus (299)                     {source: DE441}\nCenter body name: Sun (10)                        {source: DE441}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 1977-Aug-20 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 1440 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "earth": {
+      "query": {
+        "COMMAND": "'399'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'1977-08-20'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'1d'"
+      },
+      "fetched_at_utc": "2026-11-19T04:39:49.797031+00:00",
+      "raw_sha256": "0da9ce0cc6a273de6d92ada13375f9e5b7820345453991fcf6be8ed81cdf3188",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:39:49 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Earth (399)                     {source: DE441}\nCenter body name: Sun (10)                        {source: DE441}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 1977-Aug-20 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 1440 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "mars": {
+      "query": {
+        "COMMAND": "'499'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'1977-08-20'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'1d'"
+      },
+      "fetched_at_utc": "2026-11-19T04:39:51.135019+00:00",
+      "raw_sha256": "913ed60e83d659bb1816005a67594e6b9c5dbbd4522f9550913c7231fb703681",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:39:50 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Mars (499)                      {source: mar099}\nCenter body name: Sun (10)                        {source: DE441}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 1977-Aug-20 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 1440 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "jupiter": {
+      "query": {
+        "COMMAND": "'599'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'1977-08-18'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'5d'"
+      },
+      "fetched_at_utc": "2026-11-19T04:39:52.122792+00:00",
+      "raw_sha256": "2defb21d2b6d438ee6fd6123d9f86d7cdc7f141c3a6d05bc93636b3d5b9bc34c",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:39:51 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Jupiter (599)                   {source: jup365_merged}\nCenter body name: Sun (10)                        {source: jup365_merged}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 1977-Aug-18 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 7200 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "saturn": {
+      "query": {
+        "COMMAND": "'699'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'1977-08-18'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'5d'"
+      },
+      "fetched_at_utc": "2026-11-19T04:39:52.733359+00:00",
+      "raw_sha256": "aacae2c24e4c4516c4294c3374ed4e35981de916c0ddf445bfcd9d42440c2fa0",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:39:52 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Saturn (699)                    {source: sat441l}\nCenter body name: Sun (10)                        {source: DE441}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 1977-Aug-18 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 7200 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "uranus": {
+      "query": {
+        "COMMAND": "'799'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'1977-08-18'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'5d'"
+      },
+      "fetched_at_utc": "2026-11-19T04:39:53.314022+00:00",
+      "raw_sha256": "2d7a4eaa1c59b44748adee77bd8c07558bc48f98fb679327fb5c1b215041cd2b",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:39:53 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Uranus (799)                    {source: ura184_merged}\nCenter body name: Sun (10)                        {source: ura184_merged}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 1977-Aug-18 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 7200 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "neptune": {
+      "query": {
+        "COMMAND": "'899'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'1977-08-18'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'5d'"
+      },
+      "fetched_at_utc": "2026-11-19T04:39:53.971425+00:00",
+      "raw_sha256": "f5297218cdaf969cea505dca493f1ef7101df62bee55607b52da0c3a611b3711",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:39:53 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Neptune (899)                   {source: nep098_merged}\nCenter body name: Sun (10)                        {source: nep098_merged}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 1977-Aug-18 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 7200 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "voyager2_launch": {
+      "query": {
+        "COMMAND": "'-32'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'1977-08-20T16:00'",
+        "STOP_TIME": "'1977-09-01'",
+        "STEP_SIZE": "'1h'"
+      },
+      "fetched_at_utc": "2026-11-19T04:39:54.508862+00:00",
+      "raw_sha256": "e08bb648511d8bf9601f239177f07274cae9c3564eaaee3a49ac31900e113125",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:39:54 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Voyager 2 (spacecraft) (-32)    {source: Voyager_2_ST+refit2022_m}\nCenter body name: Sun (10)                        {source: Voyager_2_ST+refit2022_m}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 1977-Aug-20 16:00:00.0000 TDB\nStop  time      : A.D. 1977-Sep-01 00:00:00.0000 TDB\nStep-size       : 60 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "voyager1_extension": {
+      "query": {
+        "COMMAND": "'-31'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'2026-11-13'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'1h'"
+      },
+      "fetched_at_utc": "2026-11-19T04:44:55.622981+00:00",
+      "raw_sha256": "771c2c6e8ee0d920bb396064911bbc58426e3501479b90283c5f2c24c2c7c453",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:44:55 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Voyager 1 (spacecraft) (-31)    {source: Voyager_1_ST+refit2022_m}\nCenter body name: Sun (10)                        {source: Voyager_1_ST+refit2022_m}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 2026-Nov-13 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 60 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "voyager2_extension": {
+      "query": {
+        "COMMAND": "'-32'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'2026-11-13'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'1h'"
+      },
+      "fetched_at_utc": "2026-11-19T04:44:56.088249+00:00",
+      "raw_sha256": "23b38b5cb43a6a36160846b3b64091b4a868d6f3d2e11874c75cb5c26ebd4307",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:44:56 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Voyager 2 (spacecraft) (-32)    {source: Voyager_2_ST+refit2022_m}\nCenter body name: Sun (10)                        {source: Voyager_2_ST+refit2022_m}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 2026-Nov-13 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 60 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    },
+    "earth_extension": {
+      "query": {
+        "COMMAND": "'399'",
+        "CENTER": "'500@10'",
+        "EPHEM_TYPE": "'VECTORS'",
+        "REF_PLANE": "'ECLIPTIC'",
+        "REF_SYSTEM": "'ICRF'",
+        "TIME_TYPE": "'TDB'",
+        "VEC_CORR": "'NONE'",
+        "OUT_UNITS": "'KM-S'",
+        "VEC_TABLE": "'2'",
+        "CSV_FORMAT": "'YES'",
+        "OBJ_DATA": "'NO'",
+        "START_TIME": "'2026-11-13'",
+        "STOP_TIME": "'2026-11-19'",
+        "STEP_SIZE": "'1h'"
+      },
+      "fetched_at_utc": "2026-11-19T04:44:56.561226+00:00",
+      "raw_sha256": "dd3326b1c9891c84fb3b73522fbb48ba499cd3d272858847cd81bf3f2a20a997",
+      "header": "*******************************************************************************\nEphemeris / API_USER Wed Nov 18 20:44:56 2026 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Earth (399)                     {source: DE441}\nCenter body name: Sun (10)                        {source: DE441}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 2026-Nov-13 00:00:00.0000 TDB\nStop  time      : A.D. 2026-Nov-19 00:00:00.0000 TDB\nStep-size       : 60 minutes\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}\nOutput units    : KM-S\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC cartesian states\nOutput format   : 2 (position and velocity)\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\n            JDTDB,            Calendar Date (TDB),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,\n**************************************************************************************************************************************************************************************************"
+    }
+  },
+  "validation": {
+    "archive_records": 107502,
+    "record_count": 194562,
+    "max_earth_range_error_km": 4.327057927846909,
+    "velocity_changes_over_2kms": {
+      "voyager1_heliocentric_daily.csv": [
+        {
+          "jd_tdb": 2443937.5,
+          "delta_v_km_s": 5.056
+        },
+        {
+          "jd_tdb": 2443938.5,
+          "delta_v_km_s": 24.936
+        },
+        {
+          "jd_tdb": 2443939.5,
+          "delta_v_km_s": 5.166
+        },
+        {
+          "jd_tdb": 2444556.5,
+          "delta_v_km_s": 13.712
+        },
+        {
+          "jd_tdb": 2444557.5,
+          "delta_v_km_s": 12.588
+        }
+      ],
+      "voyager1_heliocentric_hourly_recent.csv": [],
+      "voyager1_projected_to_2050.csv": [],
+      "voyager2_heliocentric_daily.csv": [
+        {
+          "jd_tdb": 2444063.5,
+          "delta_v_km_s": 3.322
+        },
+        {
+          "jd_tdb": 2444064.5,
+          "delta_v_km_s": 12.178
+        },
+        {
+          "jd_tdb": 2444065.5,
+          "delta_v_km_s": 10.733
+        },
+        {
+          "jd_tdb": 2444066.5,
+          "delta_v_km_s": 2.939
+        },
+        {
+          "jd_tdb": 2444842.5,
+          "delta_v_km_s": 7.806
+        },
+        {
+          "jd_tdb": 2444843.5,
+          "delta_v_km_s": 19.462
+        },
+        {
+          "jd_tdb": 2446455.5,
+          "delta_v_km_s": 5.992
+        },
+        {
+          "jd_tdb": 2447764.5,
+          "delta_v_km_s": 15.917
+        }
+      ],
+      "voyager2_heliocentric_hourly_recent.csv": [],
+      "voyager2_projected_to_2050.csv": [],
+      "events/v1_jupiter.csv": [
+        {
+          "jd_tdb": 2443937.875,
+          "delta_v_km_s": 2.295
+        },
+        {
+          "jd_tdb": 2443937.916666667,
+          "delta_v_km_s": 2.805
+        },
+        {
+          "jd_tdb": 2443937.958333333,
+          "delta_v_km_s": 3.313
+        },
+        {
+          "jd_tdb": 2443938.0,
+          "delta_v_km_s": 3.663
+        },
+        {
+          "jd_tdb": 2443938.041666667,
+          "delta_v_km_s": 3.696
+        },
+        {
+          "jd_tdb": 2443938.083333333,
+          "delta_v_km_s": 3.392
+        },
+        {
+          "jd_tdb": 2443938.125,
+          "delta_v_km_s": 2.893
+        },
+        {
+          "jd_tdb": 2443938.166666667,
+          "delta_v_km_s": 2.394
+        }
+      ],
+      "events/v1_saturn.csv": [
+        {
+          "jd_tdb": 2444556.416666667,
+          "delta_v_km_s": 2.202
+        },
+        {
+          "jd_tdb": 2444556.458333333,
+          "delta_v_km_s": 3.156
+        },
+        {
+          "jd_tdb": 2444556.5,
+          "delta_v_km_s": 3.893
+        },
+        {
+          "jd_tdb": 2444556.541666667,
+          "delta_v_km_s": 3.646
+        },
+        {
+          "jd_tdb": 2444556.583333333,
+          "delta_v_km_s": 2.708
+        }
+      ],
+      "events/v2_saturn.csv": [
+        {
+          "jd_tdb": 2444842.541666667,
+          "delta_v_km_s": 2.211
+        },
+        {
+          "jd_tdb": 2444842.583333333,
+          "delta_v_km_s": 3.255
+        },
+        {
+          "jd_tdb": 2444842.625,
+          "delta_v_km_s": 4.544
+        },
+        {
+          "jd_tdb": 2444842.666666667,
+          "delta_v_km_s": 5.145
+        },
+        {
+          "jd_tdb": 2444842.708333333,
+          "delta_v_km_s": 4.339
+        },
+        {
+          "jd_tdb": 2444842.75,
+          "delta_v_km_s": 3.051
+        },
+        {
+          "jd_tdb": 2444842.791666667,
+          "delta_v_km_s": 2.075
+        }
+      ],
+      "events/v2_uranus.csv": [],
+      "events/v2_neptune.csv": [
+        {
+          "jd_tdb": 2447763.625,
+          "delta_v_km_s": 2.141
+        },
+        {
+          "jd_tdb": 2447763.666666667,
+          "delta_v_km_s": 12.655
+        },
+        {
+          "jd_tdb": 2447763.708333333,
+          "delta_v_km_s": 10.613
+        }
+      ],
+      "events/v1_heliopause.csv": []
+    },
+    "coverage": {
+      "voyager1": "V1 日网格自 1977-09-06 00:00 TDB 起。档案拼接段开始时刻早于官方发射，发射章节使用真实发射时刻。",
+      "voyager2": "V2 最早源星历为 1977-08-20 15:32:32.183 TDB；补采从 16:00 TDB 起，首次可视化位置晚于发射。",
+      "planets": "历史至 2026-11-19；外行星末点与截止日相差小于 5 天，末段不外推。"
+    },
+    "reference": "Sun-centered ICRF, J2000 ecliptic, geometric; JD TDB; km, km/s; little-endian float64",
+    "interpolation": "Linear component interpolation. Hourly event/recent samples preferred. No gaps interpolated across datasets outside their bounds."
+  }
+}
