@@ -164,7 +164,7 @@ export async function createScene(container,data,base,{video=false}={}){
    group.visible=!!s[i]&&visible[i]&&!scientific;
    beacon.visible=!!s[i]&&visible[i]&&!group.visible;
    if(s[i]){group.position.set(...scenePoint(s[i]));beacon.position.copy(group.position);group.rotation.set(.22,-.64+i*1.7,.1);}
-   group.scale.setScalar(distance*(video?.13:.027));
+   group.scale.setScalar(video ? distance * .13 : Math.max(.12, distance * .027));
    beacon.scale.setScalar(distance*.003);
    if(!modelLoaded){group.visible=false;beacon.visible=!!s[i]&&visible[i];}
    track.full.visible=visible[i];track.bright.visible=visible[i];

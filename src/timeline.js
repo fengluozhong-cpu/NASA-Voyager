@@ -13,7 +13,7 @@ export const events=[
  ['2026-11-13','One light-day','一光日',0,'Geometric Earth range reaches the distance light travels in 24 hours.','由 Horizons 同历元位置计算，旅行者 1 号与地球之间的几何距离达到光传播 24 小时的距离。','milestone']
 ].map(([date,title,zh,target,description,subtitle,asset],i)=>({date,title,zh,target,description,subtitle,asset,
   time:utcToTdb(jd(date)+(i===0?16.01/24:i===5?4/24:i===6?12/24:.5)),
-  source:i===9?'https://ssd.jpl.nasa.gov/horizons/':nasa}));
+  source:i===9?'https://www.nasa.gov/news-release/nasa-invites-media-public-to-join-voyager-1-one-light-day-activities/':nasa}));
 export const shots=[
  {event:0,seconds:12,span:90,near:4,far:10},
  {event:1,seconds:8,span:6,near:3,far:6},

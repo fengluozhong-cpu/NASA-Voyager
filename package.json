@@ -1,1 +1,20 @@
-{"name":"voyager-explorer","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"vite --host 0.0.0.0","build":"vite build","test":"node --test tests/*.test.mjs","video":"node scripts/render.mjs","preview":"vite preview --host 0.0.0.0"},"dependencies":{"three":"^0.180.0","vite":"^7.2.2"},"devDependencies":{"playwright-core":"^1.56.1"}}
+{
+  "name": "voyager-explorer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "test": "node tests/science.test.mjs",
+    "video": "node scripts/render.mjs",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "three": "^0.180.0",
+    "vite": "^7.2.2"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.56.1"
+  }
+}

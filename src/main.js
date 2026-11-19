@@ -88,7 +88,7 @@ async function init(){
  }
  function mode(value){
    journey=value;$('#journey').setAttribute('aria-pressed',value);$('#explore').setAttribute('aria-pressed',!value);
-   if(value){track=false;$('#track').setAttribute('aria-pressed',false);scene.clearFollow();seconds=0;playback(true);}
+   if(value){select(chapters[0].target);track=false;$('#track').setAttribute('aria-pressed',false);scene.clearFollow();seconds=0;playback(true);}
    else playback(false);
  }
  function jump(i){
