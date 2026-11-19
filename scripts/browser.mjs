@@ -2,7 +2,7 @@ import {createServer} from 'node:http';
 import {readFile} from 'node:fs/promises';
 import {resolve,sep,extname} from 'node:path';
 import {chromium} from 'playwright-core';
-const mime={'.html':'text/html','.js':'application/javascript','.css':'text/css','.json':'application/json','.jpg':'image/jpeg','.glb':'model/gltf-binary','.bin':'application/octet-stream','.txt':'text/plain','.md':'text/plain; charset=utf-8'};
+const mime={'.html':'text/html','.js':'application/javascript','.css':'text/css','.json':'application/json','.jpg':'image/jpeg','.glb':'model/gltf-binary','.bin':'application/octet-stream','.mp3':'audio/mpeg','.txt':'text/plain','.md':'text/plain; charset=utf-8'};
 export async function browserHarness(url){
  const launch={executablePath:process.env.CHROMIUM||'/usr/bin/chromium',args:['--no-sandbox','--disable-dev-shm-usage','--use-angle=swiftshader','--enable-unsafe-swiftshader']};
  if(url){

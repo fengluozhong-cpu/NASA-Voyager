@@ -33,6 +33,12 @@ python scripts/fetch_horizons.py --out data/raw/updated
 
 `prepare.py` verifies the input checksums, fetches matching Horizons planetary vectors, adds short launch and recent extensions, retains server JSON under `data/raw/responses`, and rebuilds the binary manifest. Reuse raw responses by preserving that directory. To refresh the original archive, include the newly collected `data/` directory at the root of a ZIP and pass it to `prepare.py`. The workflow pins the historical cutoff to the project release. More recent dates require updating the cutoff in the Python and JavaScript sources. The archive includes separate 2050 model predictions. The atlas displays the 1977–2026 mission range.
 
+## Theme music
+
+**Beyond the Last Orbit** is a 97-second original orchestral theme for the website. The Music button opts in to playback, which can be paused and resumed. The browser fetches the track on demand. [MP3](public/audio/beyond-the-last-orbit.mp3)
+
+To regenerate the MP3, install NumPy and FFmpeg and run `python scripts/compose_theme.py`. This downloads the selected CC0 instrument samples from a pinned VSCO 2 Community Edition revision into `artifacts/theme-samples`. The arrangement, synthesized textures and mixing code are in the script.
+
 ## Video
 
 Install Chromium, FFmpeg with H.264, and a CJK font such as Noto Sans CJK. The optional `CHROMIUM` variable sets the Chromium executable. Output includes a silent MP4 with built-in bilingual titles and a generated SRT.

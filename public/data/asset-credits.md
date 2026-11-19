@@ -13,5 +13,6 @@
 | Two Interstellar Travelers (illustration) | NASA/JPL-Caltech. [PIA22835](https://photojournal.jpl.nasa.gov/catalog/PIA22835) |
 | Voyager artist concept (illustration) | NASA/JPL-Caltech. [PIA14111](https://photojournal.jpl.nasa.gov/catalog/PIA14111) |
 | Planet textures, stars, orbit guides and heliopause sphere | Procedurally generated for this project. These are artistic or schematic aids. |
+| “Beyond the Last Orbit” (site theme) | Original composition and arrangement for this project. Single-note orchestral samples from [Versilian Studios VSCO 2 Community Edition](https://versilian-studios.com/vsco-community/) (CC0 1.0). Additional tonal textures are synthesized by the render script. |
 
 See the [NASA Media Usage Guidelines](https://www.nasa.gov/nasa-brand-center/images-and-media/) and the [JPL Image Use Policy](https://www.jpl.nasa.gov/jpl-image-use-policy/). NASA and JPL attribution does not imply endorsement. The video soundtrack is silent. Google Fonts supplies DM Sans, IBM Plex Mono, and Instrument Serif under the SIL Open Font License. System fallbacks are available.

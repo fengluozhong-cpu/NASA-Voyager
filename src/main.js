@@ -13,6 +13,26 @@ const total=shots.reduce((sum,shot)=>sum+shot.seconds,0);
 const jupiterStart=shots[0].seconds,jupiterEnd=jupiterStart+shots[1].seconds;
 const images=new Set(['launch','jupiter','saturn','uranus','neptune','pale','interstellar','milestone']);
 const glyph='<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="5"/><ellipse cx="16" cy="16" rx="15" ry="7" transform="rotate(-35 16 16)"/><circle cx="24" cy="7" r="1.8" class="orb"/></svg>';
+const themePath=base+'audio/beyond-the-last-orbit.mp3';
+function setupTheme(){
+ const track=$('#theme-track'),toggle=$('#theme-toggle'),status=$('#theme-status');
+ track.volume=.36;
+ const sync=()=>{
+  toggle.setAttribute('aria-pressed',String(!track.paused));
+  toggle.title=track.paused?'Play Beyond the Last Orbit':'Pause Beyond the Last Orbit';
+ };
+ track.addEventListener('play',sync);
+ track.addEventListener('pause',sync);
+ toggle.addEventListener('click',async()=>{
+  status.textContent='';
+  if(!track.paused){track.pause();sync();return;}
+  try{await track.play();}
+  catch(error){
+   if(error.name!=='AbortError')status.textContent='Theme music is unavailable. Try again.';
+   sync();
+  }
+ });
+}
 function caption(event){
  const el=$('#chapter');
  el.innerHTML=`<div class="chapter-copy"><p class="eyebrow">${event.date.slice(0,4)} / MISSION LOG</p><h2>${event.title}</h2><p>${event.description}</p><a href="${event.source}" target="_blank" rel="noopener">NASA reference</a></div>${images.has(event.asset)?`<img src="${base}assets/${event.asset}.jpg" alt="${event.title} archival image" loading="lazy">`:''}`;
@@ -21,7 +41,8 @@ function caption(event){
 if(video){
  app.innerHTML='<main class="film"><div id="space"></div><div class="film-top"><span>VOYAGER</span><span>NASA / JPL HORIZONS</span></div><div class="film-caption"><div id="film-date"></div><h1 id="film-title"></h1><p id="film-zh"></p><p id="film-description"></p></div><img id="film-image" alt="NASA archival image" hidden><div id="film-fade"></div></main>';
 }else{
- app.innerHTML=`<header class="top"><div class="brand">${glyph}<span>VOYAGER<span class="brand-sub">MISSION ATLAS</span></span></div><nav aria-label="Mode"><button id="explore" aria-pressed="true">Explore</button><button id="journey" aria-pressed="false">Journey</button></nav><a href="#sources" id="sources-link">Data &amp; sources</a></header>
+ app.innerHTML=`<header class="top"><div class="brand">${glyph}<span>VOYAGER<span class="brand-sub">MISSION ATLAS</span></span></div><nav aria-label="Mode"><button id="explore" aria-pressed="true">Explore</button><button id="journey" aria-pressed="false">Journey</button></nav><div class="top-links"><button id="theme-toggle" type="button" aria-label="Theme music" aria-pressed="false" aria-controls="theme-track" title="Play Beyond the Last Orbit"><span class="music-note" aria-hidden="true">♫</span><span class="music-text" aria-hidden="true">Music</span></button><a href="#sources" id="sources-link"><span class="sources-prefix">Data &amp; </span>sources</a></div></header>
+ <audio id="theme-track" src="${themePath}" preload="none" loop></audio><span id="theme-status" class="sr-only" role="status"></span>
  <main class="wrap"><div class="intro"><div class="intro-copy"><p class="eyebrow"><i></i> NASA / JPL HORIZONS <span>1977 — 2026</span></p><h1>49 Years Into <em>the Unknown</em></h1><p class="zh" lang="zh">旅行者：飞向未知的 49 年</p>
  <div class="intro-actions"><button id="start-journey" class="start-button" disabled>Start the journey</button><button id="watch-jupiter" class="flyby-button" disabled>Watch the Jupiter flyby</button></div></div>
  <aside class="light-day" aria-label="One light-day milestone"><p class="eyebrow">NOV 2026 / VOYAGER 1</p><p class="light-day-number">24 <span>hours</span></p><p>One-way radio travel time from Earth to Voyager 1.</p></aside></div>
@@ -40,7 +61,8 @@ if(video){
  <div class="events" id="events" aria-label="Mission events"></div></section>
  <article id="chapter" class="chapter"></article>
  <details id="sources" class="sources"><summary>Data, scales &amp; credits</summary><p>Spacecraft and planets use NASA/JPL Horizons geometric positions in the Sun-centered J2000 ecliptic frame. Dates shown in UTC are converted from TDB. The Earth range is calculated by subtracting positions at the same epoch. Light time is geometric range / c.</p><p>Presentation scale enlarges the Sun, planets and spacecraft. In scientific scale, physical body radii use the same AU scale as positions. Probe dots, circular orbit guides, and the optional 120 AU heliopause sphere are visual guides. The heliopause sphere is schematic. The Jupiter close-up uses hourly geometric vectors relative to Jupiter and a Cassini surface map from 2000. The model sizes and lighting are adjusted for readability. Other planet surface textures are artistic.</p><p>Hourly samples are preferred at covered events and near the endpoint. Positions and velocities are interpolated component by component. Early flyby trajectories are approximate mission-design solutions. The 2026 end segment is a Horizons model prediction.</p><div class="source-links"><a href="${base}data/manifest.json">Dataset and validation</a><a href="${base}data/archive-meta.json">Archive query provenance</a><a href="https://science.nasa.gov/resource/voyager-3d-model/">NASA model</a><a href="https://science.nasa.gov/mission/voyager/timeline/">NASA timeline</a><a href="${base}data/asset-credits.md">Asset credits</a></div></details>
- </main><footer class="wrap"><span>VOYAGER / MISSION ATLAS</span><span>Independent project · Data and archives courtesy of NASA / JPL</span></footer>`;
+ </main><footer class="wrap"><span>VOYAGER / MISSION ATLAS</span><a href="${themePath}" download>Original theme · Beyond the Last Orbit</a><span>Independent project · Data and archives courtesy of NASA / JPL</span></footer>`;
+ setupTheme();
 }
 async function init(){
  const data=await loadData(base),chapters=resolveEvents(data);
